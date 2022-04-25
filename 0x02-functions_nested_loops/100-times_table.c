@@ -1,50 +1,41 @@
 #include "main.h"
 
 /**
- * print_times_table - prints the times table up to the integer input
- * @n: integer input
+ * times_table - prints the 9 times table
  *
- * Return: void
+ * Return: 9 times table
  */
-
-void print_times_table(int n)
+void times_table(void)
 {
-	int a, b, c, d, e, f;
+	int a, b, mult;
 
-	if (n >= 0 && n < 15)
+	for (a = 0 ; a <= 9 ; a++)
 	{
-		for (a = 0; a <=  n; a++)
+		for (b = 0 ; b <= 9 ; b++)
 		{
-			for (b = 0; b <= n; b++)
+			mult = a * b;
+
+			if (mult <= 9)
 			{
-				c = a * b; d = c / 100; e = (c /  10) % 10;
-				f = (c % 100) % 10;
-				if (b == 0)
-				{
-					_putchar('0');
-				}
-				else if (c < 10)
-				{
-					_putchar(' '); _putchar(' ');
-					_putchar('0' + f);
-				}
-				else if (c < 100)
+				if (b != 0)
 				{
 					_putchar(' ');
-					_putchar('0' + e); _putchar('0' + f);
 				}
-				else
-				{
-					_putchar('0' + d);
-					_putchar('0' + e);
-					_putchar('0' + f);
-				}
-				if (b < n)
-				{
-					_putchar(','); _putchar(' ');
-				}
-				else
-					_putchar('\n');
+				_putchar(mult + '0');
+			}
+			else
+			{
+				_putchar(mult / 10 + '0');
+				_putchar(mult % 10 + '0');
+			}
+			if (b != 9)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
+			else
+			{
+				_putchar('\n');
 			}
 		}
 	}
