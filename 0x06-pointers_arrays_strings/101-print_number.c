@@ -1,38 +1,47 @@
 #include <stdio.h>
 #include "main.h"
-int power, neg, hold;
+/**
+ * print_number - Function that prints an integer.
+ * @n: int type number
+ * Description: Can only use _putchar to print.
+ */
+void print_number(int n)
+{
+	long m; /* power of 10 */
+	int c; /* boolean check */
+	long num; /* convert int to long */
 
-neg = 0;
-power = 1;
-hold =n;
-if (n<0)
-{
-_putchar('-');
-neg = 1;
-}
-while (hold>9 || hold < -9)
-{
-power*=10;
-hold/=10;
-}
-while(power > 0)
-{
-if(power > 9)
-{
-if (!neg)
-_putchar((n / power % 10) + '0');
-else
-_putchar((n / power % 10) ) *-1 + '0');
+	num = n;
+	/* negatives */
+	if (num < 0)
+	{
+		num *= -1;
+		_putchar('-');
+	}
 
-power /=10;
-}
-if (power==1)
-{
-if(neg)
-_putchar((n%10) *-1 + '0');
-else
-_putchar(n%10 + '0');
-power =0;
-   }
-  }
+	/* count up */
+	m = 1;
+	c = 1;
+	while (c)
+	{
+		if (num / (m * 10) > 0)
+			m *= 10;
+		else
+			c = 0;
+	}
+
+	/* count down */
+	while (num >= 0)
+	{
+		if (m == 1)
+		{
+			_putchar(num % 10 + '0');
+			num = -1;
+		}
+		else
+		{
+			_putchar((num / m % 10) + '0');
+			m /= 10;
+		}
+	}
 }
