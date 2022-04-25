@@ -1,35 +1,38 @@
 #include <stdio.h>
 #include "main.h"
-/**
- * print_number - prints integers enters as parameters using putchar
- * @n: integer to print
- * Return: void
- */
-void print_number(int n)
+int power, neg, hold;
+
+neg = 0;
+power = 1;
+hold =n;
+if (n<0)
 {
-	int power;
+_putchar('-');
+neg = 1;
+}
+while (hold>9 || hold < -9)
+{
+power*=10;
+hold/=10;
+}
+while(power > 0)
+{
+if(power > 9)
+{
+if (!neg)
+_putchar((n / power % 10) + '0');
+else
+_putchar((n / power % 10) ) *-1 + '0');
 
-	power = base10(8);
-
-	if (n < 0)
-	{
-		_putchar('-');
-		n *= -1;
-	}
-
-	if (n == 0)
-		_putchar('0');
-
-	else
-	{
-		while (n / power == 0)
-			power /= 10;
-
-		while (power >= 1)
-		{
-			_putchar((n / power) + '0');
-			n %= power;
-			power /= 10;
-		}
-	}
+power /=10;
+}
+if (power==1)
+{
+if(neg)
+_putchar((n%10) *-1 + '0');
+else
+_putchar(n%10 + '0');
+power =0;
+   }
+  }
 }
