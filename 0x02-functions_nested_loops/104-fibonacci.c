@@ -1,23 +1,20 @@
 #include <stdio.h>
-#include "main.h"
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
-
+  * main - print the first 98 fibonacci numbers.
+  * Return: Nothing.
+  */
 int main(void)
 {
 	int count;
 	unsigned long i, j, k;
 	unsigned long m, n, p, carry;
-	
+
 	count = 0;
 	i = 0;
 	j = 1;
 	for (count = 1; count <= 91; count++)
 	{
-		k = i +j;
+		k = i + j;
 		i = j;
 		j = k;
 		printf("%lu, ", k);
@@ -43,7 +40,7 @@ int main(void)
 			printf(", ");
 		count++;
 	}
-	putchar("\n");
+	putchar('\n');
 	return (0);
 }
 
